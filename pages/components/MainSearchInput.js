@@ -39,9 +39,11 @@ const MainSearchInput = inject("searchStore")(
 
     const getStore = useCallback(() => {
       console.log("======================================");
+      console.log(Router.location);
       console.log(".searchVal(MSI): ", searchStore.search);
       console.log(".computedSearch(MSI): ", searchStore.computedSearch);
       Router.push("/shop/search").then((r) => console.log("push", r));
+      // Router.reload();
     }, [searchStore]);
 
     return (

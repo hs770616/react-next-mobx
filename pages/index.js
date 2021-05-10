@@ -3,6 +3,7 @@ import Router from "next/router";
 import Nav from "./components/Nav";
 import MainSearchInput from "./components/MainSearchInput";
 import { observer, inject } from "mobx-react";
+import ObservingBoard from "./components/ObservingBoard";
 
 const Home = inject("searchStore")(
   observer(({ searchStore }) => {
@@ -32,6 +33,7 @@ const Home = inject("searchStore")(
               </MainLists>
             </MainBody>
           </MainShow>
+          <ObservingBoard />
         </Center>
       </Container>
     );

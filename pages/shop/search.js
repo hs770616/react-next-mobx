@@ -4,6 +4,8 @@ import Nav from "../components/Nav";
 import MainSearchInput from "../components/MainSearchInput";
 import { observer, inject } from "mobx-react";
 import ObservingBoard from "../components/ObservingBoard";
+import { useTempStore } from "../../src/stores/temp-store";
+
 // const Search = ({ searchStore }) => {
 //   console.log("search (searchPage): ", searchStore.search);
 
@@ -43,6 +45,8 @@ import ObservingBoard from "../components/ObservingBoard";
 // console.log("search (searchPage): ", searchStore.search);
 const Search = inject("searchStore")(
   observer(({ searchStore }) => {
+    const { search, setSearch, computedSearch } = useTempStore();
+
     return (
       <Container>
         <Top>
@@ -67,6 +71,13 @@ const Search = inject("searchStore")(
           </MainShow>
           <ObservingBoard />
         </Center>
+        <input
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
+        <div>{search}</div>
+        <div>{computedSearch}</div>
       </Container>
     );
   })

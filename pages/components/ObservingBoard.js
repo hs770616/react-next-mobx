@@ -58,8 +58,8 @@ const ObservingBoard = inject("searchStore")(
 
     return (
       <>
-        <Board1>{searchStore.search}</Board1>
-        <Board2>{searchStore.num}</Board2>
+        <Board1>search : {searchStore.search}</Board1>
+        <Board2>num : {searchStore.num}</Board2>
       </>
     );
   })
@@ -92,11 +92,13 @@ export default ObservingBoard;
 
 const Board1 = styled.div`
   position: absolute;
-  top: 240px;
+  top: 0px;
+  left: 400px;
   font-size: 40px;
 `;
 const Board2 = styled.div`
   position: absolute;
-  top: 340px;
+  top: 40px;
+  left: 400px;
   font-size: 40px;
 `;

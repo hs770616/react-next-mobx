@@ -1,4 +1,4 @@
-import { observable, action, computed } from "mobx";
+import { makeObservable, observable, action, computed } from "mobx";
 
 class SearchStore {
   @observable
@@ -6,6 +6,20 @@ class SearchStore {
 
   @observable
   num = 0;
+
+  constructor() {
+    makeObservable(this, {
+      search: observable,
+      updateSearch: action,
+      num: observable,
+      increaseNum: action,
+    });
+  }
+
+  // constructor(search, num) {
+  //   this.search = search;
+  //   this.num = num;
+  // }
 
   @action
   updateSearch = (val) => {
